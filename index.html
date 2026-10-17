@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Selamat Ulang Tahun Nenek</title>
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #ffb6d9, #ffe6f2);
+        overflow: hidden;
+    }
+
+    .kartu {
+        background: white;
+        padding: 30px 20px;
+        margin: 20px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px #d96b9b66;
+        max-width: 350px;
+        animation: muncul 1.5s ease;
+    }
+
+    h1 {
+        color: #e84393;
+    }
+
+    .kue {
+        font-size: 90px;
+        animation: goyang 2s infinite;
+    }
+
+    p {
+        color: #795064;
+        line-height: 1.7;
+    }
+
+    button {
+        background: #ff69a6;
+        color: white;
+        border: none;
+        padding: 13px 22px;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #e84393;
+        transform: scale(1.05);
+    }
+
+    #pesan {
+        display: none;
+        color: #e84393;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+
+    .hati {
+        position: fixed;
+        bottom: -30px;
+        animation: terbang 6s linear infinite;
+        pointer-events: none;
+    }
+
+    @keyframes muncul {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes goyang {
+        0%, 100% { transform: rotate(-5deg); }
+        50% { transform: rotate(5deg); }
+    }
+
+    @keyframes terbang {
+        to {
+            transform: translateY(-110vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="kartu">
+    <div style="font-size: 40px;">🎉💗🎉</div>
+
+    <h1>Selamat Ulang Tahun, Nenek!</h1>
+
+    <div class="kue">🎂</div>
+
+    <p>
+        Selamat ulang tahun, Nek! ❤️<br>
+        Semoga Nenek selalu sehat, panjang umur,
+        bahagia, dan selalu dalam lindungan Allah SWT.
+    </p>
+
+    <p>
+        Terima kasih atas kasih sayang Nenek.
+        Aku sayang Nenek! 💕
+    </p>
+
+    <button onclick="kejutan()">Klik Kejutan 🎁</button>
+
+    <div id="pesan">
+        💖 PELUK UNTUK NENEK! 💖
+        <br><br>
+        Semoga semua doa baik terkabul! 🌷
+    </div>
+</div>
+
+<script>
+    function kejutan() {
+        document.getElementById("pesan").style.display = "block";
+
+        for (let i = 0; i < 20; i++) {
+            let hati = document.createElement("div");
+            hati.className = "hati";
+            hati.innerHTML = ["💗", "💖", "🌸", "💕"][
+                Math.floor(Math.random() * 4)
+            ];
+
+            hati.style.left = Math.random() * 100 + "vw";
+            hati.style.fontSize = (20 + Math.random() * 20) + "px";
+            hati.style.animationDuration = (3 + Math.random() * 4) + "s";
+
+            document.body.appendChild(hati);
+
+            setTimeout(() => hati.remove(), 7000);
+        }
+    }
+</script>
+
+</body>
+</html>
